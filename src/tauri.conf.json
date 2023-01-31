@@ -28,7 +28,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.zig.store",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
