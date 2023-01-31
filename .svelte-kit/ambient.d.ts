@@ -27,9 +27,13 @@
  */
 declare module '$env/static/private' {
 	export const ALLUSERSPROFILE: string;
+	export const ANDROID_HOME: string;
+	export const ANDROID_SDK_ROOT: string;
 	export const APPDATA: string;
 	export const CARGO: string;
 	export const CARGO_HOME: string;
+	export const ChocolateyInstall: string;
+	export const ChocolateyLastPathUpdate: string;
 	export const CHROME_CRASHPAD_PIPE_NAME: string;
 	export const COLOR: string;
 	export const COLORTERM: string;
@@ -38,17 +42,19 @@ declare module '$env/static/private' {
 	export const COMPUTERNAME: string;
 	export const ComSpec: string;
 	export const DriverData: string;
-	export const DXSDK_DIR: string;
 	export const EDITOR: string;
+	export const FPS_BROWSER_APP_PROFILE_STRING: string;
+	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GIT_ASKPASS: string;
-	export const GIT_LFS_PATH: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const INIT_CWD: string;
+	export const JAVA_HOME: string;
 	export const LANG: string;
 	export const LD_LIBRARY_PATH: string;
 	export const LOCALAPPDATA: string;
+	export const LOCAL_GIT_DIRECTORY: string;
 	export const LOGONSERVER: string;
 	export const MACOSX_DEPLOYMENT_TARGET: string;
 	export const NODE: string;
@@ -96,9 +102,11 @@ declare module '$env/static/private' {
 	export const RUSTUP_TOOLCHAIN: string;
 	export const RUST_RECURSION_COUNT: string;
 	export const SESSIONNAME: string;
+	export const SVN_EXPERIMENTAL_COMMANDS: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
 	export const TAURI_ARCH: string;
+	export const TAURI_DEBUG: string;
 	export const TAURI_FAMILY: string;
 	export const TAURI_PLATFORM: string;
 	export const TAURI_PLATFORM_TYPE: string;
@@ -118,6 +126,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const windir: string;
+	export const __COMPAT_LAYER: string;
 }
 
 /**
@@ -148,9 +157,13 @@ declare module '$env/static/public' {
 declare module '$env/dynamic/private' {
 	export const env: {
 		ALLUSERSPROFILE: string;
+		ANDROID_HOME: string;
+		ANDROID_SDK_ROOT: string;
 		APPDATA: string;
 		CARGO: string;
 		CARGO_HOME: string;
+		ChocolateyInstall: string;
+		ChocolateyLastPathUpdate: string;
 		CHROME_CRASHPAD_PIPE_NAME: string;
 		COLOR: string;
 		COLORTERM: string;
@@ -159,17 +172,19 @@ declare module '$env/dynamic/private' {
 		COMPUTERNAME: string;
 		ComSpec: string;
 		DriverData: string;
-		DXSDK_DIR: string;
 		EDITOR: string;
+		FPS_BROWSER_APP_PROFILE_STRING: string;
+		FPS_BROWSER_USER_PROFILE_STRING: string;
 		GIT_ASKPASS: string;
-		GIT_LFS_PATH: string;
 		HOME: string;
 		HOMEDRIVE: string;
 		HOMEPATH: string;
 		INIT_CWD: string;
+		JAVA_HOME: string;
 		LANG: string;
 		LD_LIBRARY_PATH: string;
 		LOCALAPPDATA: string;
+		LOCAL_GIT_DIRECTORY: string;
 		LOGONSERVER: string;
 		MACOSX_DEPLOYMENT_TARGET: string;
 		NODE: string;
@@ -217,9 +232,11 @@ declare module '$env/dynamic/private' {
 		RUSTUP_TOOLCHAIN: string;
 		RUST_RECURSION_COUNT: string;
 		SESSIONNAME: string;
+		SVN_EXPERIMENTAL_COMMANDS: string;
 		SystemDrive: string;
 		SystemRoot: string;
 		TAURI_ARCH: string;
+		TAURI_DEBUG: string;
 		TAURI_FAMILY: string;
 		TAURI_PLATFORM: string;
 		TAURI_PLATFORM_TYPE: string;
@@ -239,6 +256,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_NODE: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		windir: string;
+		__COMPAT_LAYER: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: string]: string | undefined;
 	}
