@@ -3,7 +3,7 @@
     "beforeBuildCommand": "npm run build",
     "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:9000",
-    "distDir": "build"
+    "distDir": "../build"
   },
   "package": {
     "productName": "ZigStore",
