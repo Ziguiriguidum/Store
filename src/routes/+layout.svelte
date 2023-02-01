@@ -1,12 +1,10 @@
 <script>
 	import './styles.css';
 	import { appWindow } from '@tauri-apps/api/window';
-
-
 </script>
 
 <div class="app">
-	<div data-tauri-drag-region class="h-5 select-none flex justify-end fixed top-0 right-0 left-0">
+	<div on:mousedown={() => appWindow.startDragging()} class="h-6 select-none flex justify-end fixed top-0 right-0 left-0 bg-black bg-opacity-20">
 		<button on:click={() => appWindow.minimize()} class="w-8 hover:bg-white hover:bg-opacity-30 brightness-125">
 			<img src="https://api.iconify.design/mdi:window-minimize.svg" class="invert mx-auto" alt="minimize" />
 		</button>

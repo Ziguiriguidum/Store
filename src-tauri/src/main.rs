@@ -3,24 +3,27 @@
   windows_subsystem = "windows"
 )]
 
-use tauri::Manager;
-use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
+use tauri::{Manager, Size};
+use window_vibrancy::{apply_blur};
+use window_shadows::set_shadow;
 
 fn main() {
   tauri::Builder::default()
     .plugin(tauri_plugin_window_state::Builder::default().build())
     .setup(|app| {
       let window = app.get_window("main").unwrap();
-      #[cfg(target_os = "macos")]
-      apply_vibrancy(&window, NSVisualEffectMaterial::HudWindow, None, None)
-        .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+
+      window.set_size(Size::Logical(tauri::LogicalSize { width: 1280.0, height: 800.0 })).unwrap();
 
       #[cfg(target_os = "windows")]
-      apply_blur(&window, Some((18, 18, 18, 125)))
+      apply_blur(&window, Some((18, 18, 18, 150)))
         .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
+
+      set_shadow(&window, true).unwrap();
 
       Ok(())
     })
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
+
 }
