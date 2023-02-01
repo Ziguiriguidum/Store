@@ -6,4 +6,4 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<p class="text-5xl">Teste</p>
+<p class="text-5xl">...</p>

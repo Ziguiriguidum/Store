@@ -54,11 +54,13 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "title": "Zigstore",
+        "width": 800,
         "height": 600,
         "resizable": true,
-        "title": "Zigstore - WIP",
-        "width": 800
+        "fullscreen": false,
+        "transparent": true,
+        "decorations": false
       }
     ]
   }
