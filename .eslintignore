@@ -12,4 +12,6 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 
-.src/target/**
+/src/target/**
+
+tsconfig.json
