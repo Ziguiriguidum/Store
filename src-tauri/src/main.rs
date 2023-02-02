@@ -10,6 +10,7 @@ use window_shadows::set_shadow;
 fn main() {
   tauri::Builder::default()
     .plugin(tauri_plugin_window_state::Builder::default().build())
+    .invoke_handler(tauri::generate_handler![my_custom_command])
     .setup(|app| {
       let window = app.get_window("main").unwrap();
 
@@ -26,4 +27,10 @@ fn main() {
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 
+}
+
+
+#[tauri::command]
+fn my_custom_command() {
+  println!("I was invoked from JS!");
 }

@@ -4,7 +4,7 @@
 </script>
 
 <div class="app">
-	<div on:mousedown={() => appWindow.startDragging()} class="h-6 select-none flex justify-end fixed top-0 right-0 left-0 bg-black bg-opacity-20">
+	<div on:mousedown={() => appWindow.startDragging()} class="h-6 select-none flex justify-end fixed top-0 right-0 left-0 bg-black bg-opacity-50">
 		<button on:click={() => appWindow.minimize()} class="w-8 hover:bg-white hover:bg-opacity-30 brightness-125">
 			<img src="https://api.iconify.design/mdi:window-minimize.svg" class="invert mx-auto" alt="minimize" />
 		</button>

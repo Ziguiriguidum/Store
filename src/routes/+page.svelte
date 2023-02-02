@@ -1,4 +1,5 @@
 <script>
+	import { invoke } from '@tauri-apps/api/tauri';
 </script>
 
 <svelte:head>
@@ -6,4 +7,6 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<p class="text-5xl">...</p>
+<div class="text-5xl">
+	<button on:click={()=> invoke('my_custom_command')}>Teste</button>
+</div>
