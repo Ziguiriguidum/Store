@@ -2,7 +2,6 @@
 	import './styles.css';
 	import WindowMenu from '$components/Application/WindowMenu.svelte';
 	import { Store } from "tauri-plugin-store-api";
-	import { onMount } from 'svelte';
 	const store = new Store(".settings.dat");
 	
 </script>
