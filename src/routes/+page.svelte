@@ -4,9 +4,6 @@
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="ZigStore Homepage" />
 </svelte:head>
 
-<div class="text-5xl">
-	<button on:click={()=> invoke('my_custom_command')}>Teste</button>
-</div>

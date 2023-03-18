@@ -1,16 +1,22 @@
 <script>
 	import './styles.css';
-	import { appWindow } from '@tauri-apps/api/window';
-</script>
+	import WindowMenu from '../components/WindowMenu.svelte';
+	import { invoke } from '@tauri-apps/api/tauri';
 
+	
+</script>
+ 
 <div class="app">
-	<div on:mousedown={() => appWindow.startDragging()} class="h-6 select-none flex justify-end fixed top-0 right-0 left-0 bg-black bg-opacity-50">
-		<button on:click={() => appWindow.minimize()} class="w-8 hover:bg-white hover:bg-opacity-30 brightness-125">
-			<img src="https://api.iconify.design/mdi:window-minimize.svg" class="invert mx-auto" alt="minimize" />
-		</button>
-		<button on:click={() => appWindow.close()} class="w-8 hover:bg-red-500 hover:bg-opacity-70">
-			<img src="https://api.iconify.design/mdi:close.svg" class="invert mx-auto" alt="close" />
-		</button>
-	</div>
+	<WindowMenu />	
+	<div class="flex h-[97vh]">
+		<div class="w-2/12 h-full border-r border-white border-opacity-30 ">
+			<p class="mt-2 text-sm text-center text-gray-400">Your Library</p>
+			<hr class="opacity-50 my-2"/>			
+
+		</div>
+		<div class="w-full">
+
+		</div>
+	</div>	
 	<slot />
 </div>
