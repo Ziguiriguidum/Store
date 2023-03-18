@@ -7,7 +7,7 @@ use tauri::{Manager, Size};
 use window_vibrancy::{apply_blur};
 use window_shadows::set_shadow;
 use tauri_plugin_store::StoreBuilder;
-use serde_json::json;
+
 
 fn main() {
   tauri::Builder::default()
@@ -16,7 +16,7 @@ fn main() {
     .invoke_handler(tauri::generate_handler![my_custom_command])
     .setup(|app| {
       let window = app.get_window("main").unwrap();
-      let mut store = StoreBuilder::new(app.handle(), "path/to/store.bin".parse()?).build();
+      let mut _store = StoreBuilder::new(app.handle(), "path/to/store.bin".parse()?).build();
 
       window.set_size(Size::Logical(tauri::LogicalSize { width: 1280.0, height: 800.0 })).unwrap();
 
