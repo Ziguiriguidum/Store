@@ -4,5 +4,22 @@
 
 /* Window Menu */
 body {
-    padding-top: 24px;
+	padding-top: 24px;
+}
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background: black;
+}
+
+::-webkit-scrollbar-thumb {
+	background: gray;	
+	border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: darkgray;
 }

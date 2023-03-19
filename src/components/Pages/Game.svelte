@@ -58,8 +58,10 @@
 			</p>
 			<p class="text-gray-400">
 				{Number(game.recommendations.total).toLocaleString()} reviews (<span class="text-green-700"
-					>{Number(game.reviews.total_positive).toLocaleString()}</span
-				>/<span class="text-red-700">{Number(game.reviews.total_negative).toLocaleString()}</span>)
+					>{Number(game.reviews.query_summary.total_positive).toLocaleString()}</span
+				>/<span class="text-red-700"
+					>{Number(game.reviews.query_summary.total_negative).toLocaleString()}</span
+				>)
 			</p>
 			<p class="mt-1">{game.short_description}</p>
 			<div class="absolute top-[400px] w-80">
@@ -75,33 +77,46 @@
 		<div class="w-72">
 			{@html game.pc_requirements.recommended}
 		</div>
-		<div class="flex gap-x-4">			
-		 	<div class="w-1/2">
-			<strong class="leading-10">Genres</strong>
-			{#each game.genres as genre}
-				<p>{genre.description}</p>
-			{/each}
+		<div class="flex gap-x-4">
+			<div class="w-1/2">
+				<strong class="leading-10">Genres</strong>
+				{#each game.genres as genre}
+					<p>{genre.description}</p>
+				{/each}
 			</div>
 			<div class="w-1/2">
-			<strong class="leading-10">Categories</strong>
-			{#each game.categories as categ}
-				<p>{categ.description}</p>
-			{/each}			
-			</div>			
+				<strong class="leading-10">Categories</strong>
+				{#each game.categories as categ}
+					<p>{categ.description}</p>
+				{/each}
+			</div>
 			{#if game.metacritic}
-			<div class="w-1/2">
-				<strong class="leading-10">Metacritic</strong>
-				<div class={`${game.metacritic.score > 74 && 'bg-[#66CC33]'} ${(game.metacritic.score < 75 && game.metacritic.score > 49 ) && 'bg-[#FFCC33]'} ${game.metacritic.score < 50 && 'bg-[#FF0000]'} w-16 h-16 text-3xl text-center leading-[2]`}>{game.metacritic.score}</div>
-			</div>
+				<div class="w-1/2">
+					<strong class="leading-10">Metacritic</strong>
+					<div
+						class={`${game.metacritic.score > 74 && 'bg-[#66CC33]'} ${
+							game.metacritic.score < 75 && game.metacritic.score > 49 && 'bg-[#FFCC33]'
+						} ${
+							game.metacritic.score < 50 && 'bg-[#FF0000]'
+						} w-16 h-16 text-3xl text-center leading-[2]`}
+					>
+						{game.metacritic.score}
+					</div>
+				</div>
 			{/if}
 		</div>
 	</div>
 	<div class="w-full">
-		<p class="text-center text-xs text-gray-400 border-y border-opacity-30 h-8 leading-7 border-gray-400">
+		<p
+			class="text-center text-xs text-gray-400  h-8 leading-7 mt-14 border-gray-400"
+		>
 			<img src={chevronDown} alt="Show more" class="inline-block w-4 h-4 invert" />
 			Scroll to Read More
 			<img src={chevronDown} alt="Show more" class="inline-block w-4 h-4 invert" />
 		</p>
+	</div>
+	<div class="mx-16 mt-14">
+		<p>Reviews</p>
 	</div>
 {:catch}
 	<p class="w-full text-gray-400 text-center text-2xl pt-8">Something goes wrong...</p>

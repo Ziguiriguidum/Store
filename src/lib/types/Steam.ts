@@ -149,6 +149,13 @@ export interface SupportInfo {
 }
 
 export interface Reviews {
+    success: number
+    query_summary: QuerySummary
+    reviews: Review[]
+    cursor: string
+  }
+  
+  export interface QuerySummary {
     num_reviews: number
     review_score: number
     review_score_desc: string
@@ -156,4 +163,34 @@ export interface Reviews {
     total_negative: number
     total_reviews: number
   }
+  
+  export interface Review {
+    recommendationid: string
+    author: Author
+    language: string
+    review: string
+    timestamp_created: number
+    timestamp_updated: number
+    voted_up: boolean
+    votes_up: number
+    votes_funny: number
+    weighted_vote_score: string
+    comment_count: number
+    steam_purchase: boolean
+    received_for_free: boolean
+    written_during_early_access: boolean
+    hidden_in_steam_china: boolean
+    steam_china_location: string
+  }
+  
+  export interface Author {
+    steamid: string
+    num_games_owned: number
+    num_reviews: number
+    playtime_forever: number
+    playtime_last_two_weeks: number
+    playtime_at_review: number
+    last_played: number
+  }
+  
   
