@@ -35,6 +35,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@bbob/html": "^2.9.0",
+		"@bbob/preset-html5": "^2.9.0",
 		"@fortawesome/free-brands-svg-icons": "^6.3.0",
 		"@fortawesome/free-solid-svg-icons": "^6.3.0",
 		"@tauri-apps/api": "^1.2.0",
@@ -42,6 +44,7 @@
 		"feather-icons": "^4.29.0",
 		"svelte-carousel": "^1.0.23",
 		"svelte-fa": "^3.0.3",
-		"tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store"
+		"tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store",
+		"ya-bbcode": "^3.1.0"
 	}
 }
