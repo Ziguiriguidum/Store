@@ -6,7 +6,7 @@
 	
 </script>
  
-<div class="app">
+<div class={`app`}>
 	<WindowMenu />	
 	<div class="grid grid-cols-12 h-[97vh]">
 		<div class="col-span-2 border-r border-white border-opacity-30 h-full">

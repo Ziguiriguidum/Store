@@ -68,7 +68,7 @@
 			<p class="mt-1">{game.short_description}</p>
 			<div class="absolute top-[400px] w-80">
 				<p class="text-gray-400">By: <strong>{game.internal.sceneGroup}</strong></p>
-				<button class="w-full bg-gray-600 rounded-full text-lg">Install</button>
+				<button on:click={()=> props.installGameId = game.internal.id} class="w-full bg-gray-600 rounded-full text-lg">Install</button>
 			</div>
 		</div>
 	</div>
