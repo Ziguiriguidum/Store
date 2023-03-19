@@ -1,4 +1,9 @@
+import type { Game } from "./Game";
+
 export interface SteamGame {
+    internal:             Game;    
+    player_count:         number;
+    reviews:              Reviews;
     type:                 string;
     name:                 string;
     steam_appid:          number;
@@ -53,7 +58,7 @@ export interface Category {
 }
 
 export interface ContentDescriptors {
-    ids:   any[];
+    ids:   string[];
     notes: null;
 }
 
@@ -142,3 +147,13 @@ export interface SupportInfo {
     url:   string;
     email: string;
 }
+
+export interface Reviews {
+    num_reviews: number
+    review_score: number
+    review_score_desc: string
+    total_positive: number
+    total_negative: number
+    total_reviews: number
+  }
+  

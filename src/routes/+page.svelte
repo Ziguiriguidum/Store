@@ -6,4 +6,4 @@
     
 </script>
 
-<svelte:component {...props} bind:props={props} bind:page={page} this={page} />
+<svelte:component bind:props={props} bind:page={page} this={page} />

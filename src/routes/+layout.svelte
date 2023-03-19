@@ -10,7 +10,7 @@
 	<WindowMenu />	
 	<div class="flex h-[97vh]">
 		<div class="w-2/12 border-r border-white border-opacity-30">
-			<p class="mt-2 text-sm text-center text-gray-400">Your Library</p>
+			<button on:click={() => window.location.reload()} class="mt-2 text-sm text-center w-full text-gray-400">Home</button>
 			<hr class="opacity-50 my-2"/>						
 			{#await store.get("myGames")}
 				<p class="text-sm text-center text-gray-400">Loading...</p>

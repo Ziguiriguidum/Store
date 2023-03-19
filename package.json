@@ -35,7 +35,13 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fortawesome/free-brands-svg-icons": "^6.3.0",
+		"@fortawesome/free-solid-svg-icons": "^6.3.0",
 		"@tauri-apps/api": "^1.2.0",
+		"@types/feather-icons": "^4.29.1",
+		"feather-icons": "^4.29.0",
+		"svelte-carousel": "^1.0.23",
+		"svelte-fa": "^3.0.3",
 		"tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store"
 	}
 }
