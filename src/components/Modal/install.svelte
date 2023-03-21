@@ -18,7 +18,7 @@
                 X
             </button>
         </div>
-        <button on:click={() => (open({directory: true, multiple: false, defaultPath: installPath || "C:\\"}).then((e) => {e ? installPath = e.toString() : ''}))} class="absolute translate-x-80 brightness-[10] hover:brightness-[3] cursor-pointer">📁</button>
+        <button on:click={() => (open({directory: true, defaultPath: installPath || "C:\\"}).then((e) => {e ? installPath = e.toString() : ''}))} class="absolute translate-x-80 brightness-[10] hover:brightness-[3] cursor-pointer">📁</button>
         <input type="text" bind:value={installPath} class="w-full bg-[#131313] pl-4 rounded-lg text-lg" placeholder="Install Path" />
         <div class="flex text-left">
             <p class="text-xs w-10/12 px-2">You need at least {props.installGame.internal.size.toLocaleString()}GB available to perform this action!</p>
