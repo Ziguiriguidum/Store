@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SteamGame } from "$lib/types/Steam";
     import { open } from "@tauri-apps/api/dialog";
-    export let props: { installGame: SteamGame | null };    
+    export let props: { installGame: SteamGame | null } | any;    
 
     let installPath = 'C:\\Games\\';
 
