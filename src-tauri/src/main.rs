@@ -6,8 +6,8 @@
 use std::path::PathBuf;
 
 use serde_json::json;
-use tauri::{Manager, Size};
-use tauri_plugin_store::StoreCollection;
+use tauri::{Manager, Size, State, Wry};
+use tauri_plugin_store::{with_store, StoreCollection};
 use window_shadows::set_shadow;
 
 fn main() {
@@ -33,26 +33,25 @@ fn main() {
         .expect("error while running tauri application");
 }
 
-// #[derive(serde::Deserialize)]
-// struct ItemQueue {
-//     id: i32,
-//     path: String,
-// }
+#[derive(serde::Deserialize)]
+struct ItemQueue {
+    id: i32,
+    path: String,
+}
 
-// #[derive(serde::Deserialize)]
-// struct Queue {
-//     queue: Vec<ItemQueue>,
-// }
+#[derive(serde::Deserialize)]
+struct Queue {
+    queue: Vec<ItemQueue>,
+}
 
 #[tauri::command]
-async fn add_app_queue(app: tauri::AppHandle, _id: i32, _path: String) {
-    use tauri::{Manager, Wry};
-    use tauri_plugin_store::with_store;
+async fn add_app_queue(app_handle: tauri::AppHandle, stores: State<'_, StoreCollection<Wry>>) -> Result<(), tauri_plugin_store::Error>  {
 
-    let stores = app.state::<StoreCollection<Wry>>();
-    let path = PathBuf::from(".settings.dat");
-    with_store(app.app_handle(), stores, path, |store| {
-        store.insert("a".to_string(), json!("b"));
-        Ok(())
-    });
+    let path = app_handle.path_resolver().app_data_dir().unwrap().join(".settings.dat");
+
+    with_store(app_handle, stores, path, |store| {
+        store.insert("queue".into(), json!("trial"))
+    })?;
+
+    Ok(())   
 }
