@@ -1,1 +1,3 @@
 # Svelte + Tauri
+
+# I don't known Svelte neither too Rust...
