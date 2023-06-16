@@ -16,10 +16,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: gray;	
+	background: gray;
 	border-radius: 100px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
 	background: darkgray;
+}
+
+html {
+	background-color: rgba(18, 18, 18, 0.75);
+	background-opacity: 0.5;
 }
