@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { SteamGame } from '$lib/types/Steam';
 	import { open } from '@tauri-apps/api/dialog';
+	import { invoke } from '@tauri-apps/api/tauri';
 	export let props: { installGame: SteamGame | null } | any;
 
 	let installPath = 'C:\\Games\\';
@@ -48,7 +49,9 @@
 				</p>
 				<button
 					class="w-24 hover:brightness-125 rounded float-right mr-2 mt-2 bg-[#1a1a1a] border border-white border-opacity-30"
-					on:click={() => console.log('ok')}>Install</button
+					on:click={() =>
+						invoke('install_app', { id: props.installGame.internal.id, path: installPath })}
+					>Install</button
 				>
 			</div>
 		</button>

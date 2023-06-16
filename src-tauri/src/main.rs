@@ -11,7 +11,7 @@ fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_store::Builder::default().build())
         .plugin(tauri_plugin_window_state::Builder::default().build())
-        .invoke_handler(tauri::generate_handler![my_custom_command])
+        .invoke_handler(tauri::generate_handler![install_app])
         .setup(|app| {
             let window = app.get_window("main").unwrap();
             let mut _store = StoreBuilder::new(app.handle(), "path/to/store.bin".parse()?).build();
@@ -32,6 +32,6 @@ fn main() {
 }
 
 #[tauri::command]
-fn my_custom_command() {
-    println!("I was invoked from JS!");
+fn install_app(id: i32, path: String) {
+    println!("Installing app {} from {}", id, path);
 }
