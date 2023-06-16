@@ -50,7 +50,7 @@
 				<button
 					class="w-24 hover:brightness-125 rounded float-right mr-2 mt-2 bg-[#1a1a1a] border border-white border-opacity-30"
 					on:click={() =>
-						invoke('install_app', { id: props.installGame.internal.id, path: installPath })}
+						invoke('add_app_queue', { id: props.installGame.internal.id, path: installPath })}
 					>Install</button
 				>
 			</div>
