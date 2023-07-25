@@ -4,8 +4,8 @@
 	import Carousel from 'svelte-carousel';
 	import chevronDown from '$lib/images/chevron-down.svg';
 	const store = new Store('.settings.dat');
-	import bbobHTML from '@bbob/html'
-	import presetHTML5 from '@bbob/preset-html5'
+	import bbobHTML from '@bbob/html';
+	import presetHTML5 from '@bbob/preset-html5';
 
 	export let props;
 	export let page;
@@ -68,7 +68,10 @@
 			<p class="mt-1">{game.short_description}</p>
 			<div class="absolute top-[400px] w-80">
 				<p class="text-gray-400">By: <strong>{game.internal.sceneGroup}</strong></p>
-				<button on:click={()=> props.installGame = game} class="w-full bg-gray-600 rounded-full text-lg">Install</button>
+				<button
+					on:click={() => (props.installGame = game)}
+					class="w-full bg-gray-600 rounded-full text-lg">Install</button
+				>
 			</div>
 		</div>
 	</div>
@@ -108,7 +111,7 @@
 			{/if}
 		</div>
 	</div>
-	<button class="w-full" on:click={()=> window.scrollTo(0, 800)}>
+	<button class="w-full" on:click={() => window.scrollTo(0, 800)}>
 		<p class="text-center text-xs text-gray-400  h-8 leading-7 mt-14 border-gray-400">
 			<img src={chevronDown} alt="Show more" class="inline-block w-4 h-4 invert" />
 			Scroll to Read More
@@ -119,11 +122,16 @@
 		<p class="text-xl text-gray-400 border-b mb-4">Reviews</p>
 	</div>
 	{#each game.reviews.reviews as review}
-	<div class="mx-16 mb-4 p-4 rounded-xl">
-		{review.author.steamid} • {review.author.num_games_owned} games • {review.author.num_reviews} reviews • {(review.author.playtime_forever/60).toFixed(0)} hours played • {review.voted_up ? '✅' : '❌'}
-		<div class="text-xs bg-gray-900 bg-opacity-50 ">{@html bbobHTML((review.review), presetHTML5())}</div>
-		<hr/>
-	</div>
+		<div class="mx-16 mb-4 p-4 rounded-xl">
+			{review.author.steamid} • {review.author.num_games_owned} games • {review.author.num_reviews} reviews
+			• {(review.author.playtime_forever / 60).toFixed(0)} hours played • {review.voted_up
+				? '✅'
+				: '❌'}
+			<div class="text-xs bg-gray-900 bg-opacity-50 ">
+				{@html bbobHTML(review.review, presetHTML5())}
+			</div>
+			<hr />
+		</div>
 	{/each}
 {:catch}
 	<p class="w-full text-gray-400 text-center text-2xl pt-8">Something goes wrong...</p>

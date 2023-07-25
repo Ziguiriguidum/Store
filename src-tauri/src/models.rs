@@ -1,6 +1,7 @@
 use diesel::prelude::*;
 
 #[derive(Queryable, Selectable)]
+#[derive(serde::Serialize)]
 #[diesel(table_name = crate::schema::queue)]
 #[diesel(check_for_backend(diesel::sqlite::Sqlite))]
 pub struct Queue {
