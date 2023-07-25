@@ -3,12 +3,12 @@
     windows_subsystem = "windows"
 )]
 
-use queue::{QUEUE, QueueTrait};
-use tauri::{Manager, Size};
+use app::add_queue;
+use tauri::{Manager, Size}; 
 use window_shadows::set_shadow;
 mod use_store;
 mod game_list;
-mod queue;
+use app::get_queue;
 
 fn main() {
     tauri::Builder::default()
@@ -25,7 +25,7 @@ fn main() {
                 }))
                 .unwrap();
 
-            set_shadow(&window, true).unwrap();
+            set_shadow(&window, true).unwrap();            
 
             Ok(())
         })
@@ -38,12 +38,12 @@ async fn add_app_queue(app_handle: tauri::AppHandle, id: String, path: String) -
     if !game_list::game_exists(app_handle.clone(), &id){        
         return Err("Game not found".into());
     }
-
-    unsafe {
-        QUEUE.add(id.clone(), path);
-        println!("{:?}", QUEUE.get(id));
-    }
-
-
+    
+    add_queue(id.as_str(), path.as_str());
     Ok("Success".into())
+}
+
+#[tauri::command]
+async fn get_app_queue() -> Option<Vec<app::models::Queue>> {
+    get_queue().unwrap().into()
 }
