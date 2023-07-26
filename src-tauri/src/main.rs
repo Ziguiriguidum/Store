@@ -10,6 +10,8 @@ mod use_store;
 mod game_list;
 use app::get_queue;
 
+static mut APP_DIR: Option<String> = None;
+
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_store::Builder::default().build())
@@ -17,6 +19,7 @@ fn main() {
         .invoke_handler(tauri::generate_handler![add_app_queue, get_app_queue, fetch_games])
         .setup(|app| {
             let window = app.get_window("main").unwrap();
+            
 
             window
                 .set_size(Size::Logical(tauri::LogicalSize {
