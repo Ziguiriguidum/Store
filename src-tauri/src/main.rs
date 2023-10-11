@@ -3,12 +3,10 @@
     windows_subsystem = "windows"
 )]
 
-use app::add_queue;
 use tauri::{Manager, Size}; 
 use window_shadows::set_shadow;
 mod use_store;
 mod game_list;
-use app::get_queue;
 
 static mut APP_DIR: Option<String> = None;
 
@@ -43,14 +41,12 @@ async fn fetch_games(app_handle: tauri::AppHandle) -> Result<String, String> {
 
 #[tauri::command]
 async fn add_app_queue(app_handle: tauri::AppHandle, id: String, path: String) -> Result<String, String> {    
-    add_queue(id.as_str(), path.as_str());
+    
     Ok("Success".into())
 }
 
 #[tauri::command]
-async fn get_app_queue(app_handle: tauri::AppHandle) -> Result<Vec<app::models::Queue>, String> {
-    if get_queue().unwrap().is_none() {
-        return Err("No queue found".into());
-    };
-    Ok(get_queue().unwrap().unwrap())
+async fn get_app_queue(app_handle: tauri::AppHandle) -> Result<String, String> {
+
+    Ok("".into())
 }
