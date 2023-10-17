@@ -36,7 +36,7 @@ fn main() {
 async fn add_app_queue(_app_handle: tauri::AppHandle, _id: String, _path: String) -> Result<String, String> {    
     println!("{}", _app_handle.path_resolver().app_data_dir().unwrap().as_path().display());
     let db = db::get_database().await;
-    db.ping().await.unwrap();
+
     println!("ping ok");
     Ok("Success".into())
 }
