@@ -1,25 +1,16 @@
-use sea_orm::{ConnectOptions, Database, DatabaseConnection};
-use core::time::Duration;
-use std::{path::Path, fs::File};
-use log::LevelFilter;
+use sea_orm::{ Database, DatabaseConnection};
+use std::fs::File;
+use tauri::api::path::data_dir;
 
 
 pub async fn get_database() -> DatabaseConnection{
-    if !Path::new("database.db").exists() {
-        File::create("database.db").expect("Unable to create file");
+
+    if !data_dir().unwrap().as_path().join("/com.zig.store/database.db").exists() { 
+        std::fs::create_dir_all(data_dir().unwrap().as_path().join("/com.zig.store")).expect("Unable to create directory");         
+        File::create(data_dir().unwrap().as_path().join("/com.zig.store/database.db")).expect("Unable to create file");
     }
 
-
-    let mut opt = ConnectOptions::new("sqlite://database.db");
-    opt.max_connections(100)
-        .min_connections(5)
-        .connect_timeout(Duration::from_secs(8))
-        .acquire_timeout(Duration::from_secs(8))
-        .idle_timeout(Duration::from_secs(8))
-        .max_lifetime(Duration::from_secs(8))
-        .sqlx_logging(true)
-        .sqlx_logging_level(LevelFilter::Info);
-
-    let db = Database::connect(opt).await.unwrap();
+    let db = Database::connect(format!("sqlite://{}", data_dir().unwrap().as_path().join("/com.zig.store/database.db").as_path().display().to_string())).await.unwrap();
+    db.ping().await.unwrap();
     return db;
 }
