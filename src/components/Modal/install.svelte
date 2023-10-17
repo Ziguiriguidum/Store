@@ -10,7 +10,7 @@
 {#if props.installGame}
 	<button
 		class={`${
-			props.installGame ? 'absolute' : 'hidden'
+			props.installGame ? 'fixed' : 'hidden'
 		} top-0 cursor-default left-0 w-full h-full bg-black bg-opacity-30 backdrop-blur-md flex justify-center items-center`}
 	>
 		<button

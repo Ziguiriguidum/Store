@@ -9,9 +9,9 @@
 	<WindowMenu />
 	<div class="grid grid-cols-12 h-[97vh]">
 		<div class="col-span-2 border-r border-white border-opacity-30 h-full">
-			<div class="fixed w-[212px] h-[97vh] relative">
+			<div class="fixed w-[212px] h-[97vh]">
 				<button
-					on:click={() => (window.location = '/')}
+					on:click={() => (window.location.href = '/')}
 					class="mt-2 text-sm text-center w-full text-gray-400">Home</button
 				>
 				<hr class="opacity-50 my-2" />
@@ -35,7 +35,7 @@
 				{/await}
 				<button
 					class="absolute bottom-0 select-none hover:cursor-pointer hover:brightness-150 transition border-t border-white border-opacity-30 text-sm text-center w-full text-gray-400 py-2"
-					on:click={() => (window.location = '/?page=queue')}
+					on:click={() => (window.location.href = '/?page=queue')}
 				>
 					Downloads
 				</button>
