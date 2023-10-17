@@ -5,6 +5,7 @@
 
 use tauri::{Manager, Size}; 
 use window_shadows::set_shadow;
+mod db;
 
 fn main() {
     tauri::Builder::default()
@@ -31,13 +32,16 @@ fn main() {
 }
 
 #[tauri::command]
-async fn add_app_queue(app_handle: tauri::AppHandle, id: String, path: String) -> Result<String, String> {    
-    
+async fn add_app_queue(_app_handle: tauri::AppHandle, _id: String, _path: String) -> Result<String, String> {    
+    let db = db::get_database().await;
+    db.ping().await.unwrap();
+    println!("ping ok");
+
     Ok("Success".into())
 }
 
 #[tauri::command]
-async fn get_app_queue(app_handle: tauri::AppHandle) -> Result<String, String> {
+async fn get_app_queue(_app_handle: tauri::AppHandle) -> Result<String, String> {
 
     Ok("".into())
 }
