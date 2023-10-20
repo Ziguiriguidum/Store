@@ -5,10 +5,9 @@ use tauri::api::path::data_dir;
 
 pub async fn create_database() {
     let db_dir = {
-        let path = format!("sqlite:{}{}/com.zig.store/database.db", data_dir().unwrap().display(), std::path::MAIN_SEPARATOR);
+        let path = format!("sqlite:{}{}com.zig.store/database.db", data_dir().unwrap().display(), std::path::MAIN_SEPARATOR);
         Box::leak(path.into_boxed_str())
     };
-
 
     if !Sqlite::database_exists(db_dir).await.unwrap_or(false) {
         println!("Creating database {}", db_dir);

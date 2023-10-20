@@ -3,12 +3,13 @@
     windows_subsystem = "windows"
 )]
 
+use db::create_database;
 use tauri::{Manager, Size}; 
 use window_shadows::set_shadow;
 mod db;
 
 
-fn main() {
+fn main() {    
     tauri::Builder::default()
         .plugin(tauri_plugin_store::Builder::default().build())
         .plugin(tauri_plugin_window_state::Builder::default().build())
@@ -33,9 +34,8 @@ fn main() {
 }
 
 #[tauri::command]
-async fn add_app_queue(_app_handle: tauri::AppHandle, _id: String, _path: String) -> Result<String, String> {    
-    println!("{}", _app_handle.path_resolver().app_data_dir().unwrap().as_path().display());
-    let db = db::get_database().await;
+async fn add_app_queue(_app_handle: tauri::AppHandle, _id: String, _path: String) -> Result<String, String> {        
+    create_database().await;
 
     println!("ping ok");
     Ok("Success".into())
