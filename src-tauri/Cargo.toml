@@ -5,32 +5,30 @@ description = "A Tauri App"
 authors = ["you"]
 license = ""
 repository = ""
-default-run = "app"
 edition = "2021"
+default-run = "app"
 rust-version = "1.70"
 
 # https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "^1.4.0", features = [] }
+tauri-build = { version = "2.0.0-alpha", features = [] }
 
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "^1.4.0", features = ["api-all"] }
+tauri = { version = "2.0.0-alpha", features = [] }
 window-vibrancy = "0.3.2"
-tauri-plugin-window-state = "^0.1.0"
+tauri-plugin-window-state = "2.0.0-alpha"
 window-shadows = "^0.2.1"
 sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "sqlite"] }
 tokio = { version = "1.20.0", features = ["macros"] }
-tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+tauri-plugin-store = "2.0.0-alpha"
 log = "0.4.20"
 
 [dependencies.tauri-plugin-sql]
 features = ["sqlite"]
 version = "2.0.0-alpha"
-git = "https://github.com/tauri-apps/plugins-workspace"
-branch = "v2"
 
 [features]
 default = ["custom-protocol"]

@@ -1,5 +1,3 @@
-use super::get_database;
-
 pub struct Games{
     pub idx: i32,
     pub id: String,
@@ -29,8 +27,7 @@ impl Games{
         }
     }
 
-   pub async fn add_db(&self) -> Result<bool, String> {
-        let db = get_database().await;
+   pub async fn add_db(&mut self, db: sqlx::Pool<sqlx::Sqlite>) -> Result<bool, String> {
         let result = sqlx::query("INSERT INTO GAMES (id, platform, name, version, sceneGroup, magnet, size, installer, page) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
             .bind(&self.id)
             .bind(&self.platform)

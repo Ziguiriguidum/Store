@@ -9,10 +9,12 @@
     "productName": "ZigStore",
     "version": "0.1.0"
   },
+  "plugins": {
+    "updater": {
+      "endpoints": []
+    }
+  },
   "tauri": {
-    "allowlist": {
-      "all": true
-    },
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -38,10 +40,13 @@
         "signingIdentity": null
       },
       "resources": [
-          "resources/*"
+        "resources/*"
       ],
       "shortDescription": "",
       "targets": "all",
+      "updater": {
+        "active": false
+      },
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
@@ -51,18 +56,15 @@
     "security": {
       "csp": null
     },
-    "updater": {
-      "active": false
-    },
     "windows": [
       {
-        "title": "Zigstore",
-        "width": 800,
+        "decorations": false,
+        "fullscreen": false,
         "height": 600,
         "resizable": false,
-        "fullscreen": false,
+        "title": "Zigstore",
         "transparent": true,
-        "decorations": false
+        "width": 800
       }
     ]
   }
