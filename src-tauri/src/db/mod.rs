@@ -1,25 +1,26 @@
 
-use sqlx::{migrate::MigrateDatabase, Row, Sqlite, SqlitePool};
-use tauri::{api::path::{data_dir, resource_dir}, PathResolver};
+use std::{path::PathBuf, fs};
+
+use sqlx::{migrate::MigrateDatabase, Sqlite, SqlitePool};
+use tauri::api::path::data_dir;
 pub mod games;
 
-pub async fn db_setup<'a>(path_resolver: PathResolver) -> Result<bool, String> {
+pub async fn db_setup<'a>(resources_dir: PathBuf) -> Result<bool, String> {
     if db_exists().await{
         return Ok(true); 
     }
 
     let db_dir = {
-        let path = format!("sqlite:{}{}com.zig.store/database.db", data_dir().unwrap().display(), std::path::MAIN_SEPARATOR);
+        let path = format!("{}{}com.zig.store/database.db", data_dir().unwrap().display(), std::path::MAIN_SEPARATOR);
         Box::leak(path.into_boxed_str())
     };
+        
+    println!("db_dir: {}", db_dir);
+    println!("resource_dir: {}", resources_dir.to_str().unwrap().replace("\\\\?\\", ""));
 
-    let resourceDir = path_resolver.resolve_resource("database.db").expect("Failed to find database resource directory");
-    println!("{}", resourceDir.display());
+    fs::copy(resources_dir.to_str().unwrap().replace("\\\\?\\", ""), db_dir).expect("Failed to copy database");
 
-
-    return Ok(true);
-
-    
+    return Ok(true);    
 }
 
 pub async fn db_exists() -> bool {
@@ -34,10 +35,6 @@ pub async fn db_exists() -> bool {
         Err(_) => return false
     }
        
-}
-
-pub async fn copy_template_database() -> bool {
-    return true;
 }
 
 pub async fn get_database()-> sqlx::Pool<Sqlite>{

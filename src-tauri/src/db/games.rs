@@ -6,7 +6,7 @@ pub struct Games{
     pub platform: String,
     pub name: String,
     pub version: String,
-    pub sceneGroup: String,
+    pub scene_group: String,
     pub magnet: String,
     pub size: f32,
     pub installer: String,
@@ -14,14 +14,14 @@ pub struct Games{
 }
 
 impl Games{
-    pub fn new(idx: i32, id: String, platform: String, name: String, version: String, sceneGroup: String, magnet: String, size: f32, installer: String, page: String) -> Games{
+    pub fn new(idx: i32, id: String, platform: String, name: String, version: String, scene_group: String, magnet: String, size: f32, installer: String, page: String) -> Games{
         Games {
             idx,
             id,
             platform,
             name,
             version,
-            sceneGroup,
+            scene_group,
             magnet,
             size,
             installer,
@@ -36,7 +36,7 @@ impl Games{
             .bind(&self.platform)
             .bind(&self.name)
             .bind(&self.version)
-            .bind(&self.sceneGroup)
+            .bind(&self.scene_group)
             .bind(&self.magnet)
             .bind(&self.size)
             .bind(&self.installer)
@@ -46,7 +46,7 @@ impl Games{
 
         match result {
             Ok(_) => return Ok(true),
-            Err(E) => return Err(E.to_string())
+            Err(e) => return Err(e.to_string())
         }
         
     }

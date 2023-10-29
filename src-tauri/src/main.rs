@@ -11,20 +11,14 @@ fn setup<'a>(app: &'a mut tauri::App) -> Result<(), Box<dyn std::error::Error>> 
     let window = app.get_window("main").unwrap();         
     window.set_size(Size::Logical(tauri::LogicalSize { width: 1280.0, height: 800.0})).unwrap();
     set_shadow(&window, true).unwrap();
+    
 
+    let resource_dir = app.path_resolver().resolve_resource("resources/database.db").unwrap();
 
-    println!("{}", app.path_resolver().resource_dir().unwrap().display());
-
+    
     tauri::async_runtime::spawn(async move {
-      db::db_setup(app.path_resolver()).await.unwrap();    
+      db::db_setup(resource_dir).await.unwrap();    
     });       
-
-
-
-   
-
-
-
 
     Ok(())
 }
@@ -45,7 +39,7 @@ async fn add_app_queue(_app_handle: tauri::AppHandle, _id: String, _path: String
     let result = db::games::Games::new(1, "id".to_string(), "platform".to_string(), "name".to_string(), "version".to_string(), "sceneGroup".to_string(), "magnet".to_string(), 1.0, "installer".to_string(), "page".to_string()).add_db().await;
     match result {
         Ok(_) => println!("add ok"),
-        Err(E) => println!("error: {}", E)
+        Err(e) => println!("error: {}", e)
     }
 
     println!("ping ok");
