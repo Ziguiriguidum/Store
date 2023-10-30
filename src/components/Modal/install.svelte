@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { SteamGame } from '$lib/types/Steam';
 	import { open } from '@tauri-apps/plugin-dialog';
-	import tauri from '@tauri-apps/api';
 	export let props: { installGame: SteamGame | null } | any;
 	let installPath = 'C:\\Games\\';
 </script>

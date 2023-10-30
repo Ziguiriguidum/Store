@@ -61,8 +61,7 @@
         "resizable": false,
         "title": "Zigstore",
         "transparent": true,
-        "width": 800,
-        "shadow": false
+        "width": 800
       }
     ]
   }

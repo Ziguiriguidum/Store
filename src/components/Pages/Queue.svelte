@@ -1,7 +1,6 @@
 <script>
 	import { onMount, getContext } from 'svelte';
 	import { Store } from '@tauri-apps/plugin-store';
-	import { invoke } from '@tauri-apps/api/tauri';
 	import Game from './Game.svelte';
 	const store = new Store('.settings.dat');
 
@@ -14,7 +13,6 @@
 			store.set('gameList', gameList.games);
 			store.save();
 		}
-		console.log(await invoke('get_app_queue'));
 	});
 
 	const loadGame = (game) => {
