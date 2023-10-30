@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type { SteamGame } from '$lib/types/Steam';
-	import { open } from '@tauri-apps/api/dialog';
-	import { invoke } from '@tauri-apps/api/tauri';
+	import { open } from '@tauri-apps/plugin-dialog';
+	import tauri from '@tauri-apps/api';
 	export let props: { installGame: SteamGame | null } | any;
-
 	let installPath = 'C:\\Games\\';
 </script>
 
@@ -48,12 +47,7 @@
 					perform this action!
 				</p>
 				<button
-					class="w-24 hover:brightness-125 rounded float-right mr-2 mt-2 bg-[#1a1a1a] border border-white border-opacity-30"
-					on:click={() =>
-						invoke('add_app_queue', {
-							id: String(props.installGame.internal.id),
-							path: installPath
-						})}>Install</button
+					class="w-24 hover:brightness-125 rounded float-right mr-2 mt-2 bg-[#1a1a1a] border border-white border-opacity-30">Install</button
 				>
 			</div>
 		</button>
