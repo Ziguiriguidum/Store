@@ -1,7 +1,7 @@
 <script>
 	import './styles.css';
 	import WindowMenu from '$components/Application/WindowMenu.svelte';
-	import { Store } from 'tauri-plugin-store-api';
+	import { Store } from '@tauri-apps/plugin-store';
 	const store = new Store('.settings.dat');
 </script>
 

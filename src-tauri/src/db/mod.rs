@@ -16,8 +16,12 @@ impl Database{
             return Ok(true); 
         } 
 
-        self.db_dir = format!("{}{}com.zig.store/database.db", self.data_dir.display(), std::path::MAIN_SEPARATOR);
+        self.db_dir = format!("{}{}/database.db", self.data_dir.display(), std::path::MAIN_SEPARATOR);
             
+        println!("db_dir: {}", self.db_dir);
+        println!("resources_dir: {}", self.resources_dir.to_str().unwrap().replace("\\\\?\\", ""));
+
+        fs::create_dir(self.db_dir.clone().replace("database.db", "")).expect("Failed to create database directory");
         fs::copy(self.resources_dir.to_str().unwrap().replace("\\\\?\\", ""), self.db_dir.clone()).expect("Failed to copy database");
 
         return Ok(true);    
@@ -25,7 +29,7 @@ impl Database{
 
     pub async fn db_exists(&mut self) -> bool {
         let db_dir = {
-            let path = format!("sqlite:{}{}com.zig.store/database.db",self.data_dir.display(), std::path::MAIN_SEPARATOR);
+            let path = format!("sqlite:{}{}/database.db",self.data_dir.display(), std::path::MAIN_SEPARATOR);
             Box::leak(path.into_boxed_str())
         };
 

@@ -1,6 +1,6 @@
 <script>
 	import { onMount, getContext } from 'svelte';
-	import { Store } from 'tauri-plugin-store-api';
+	import { Store } from '@tauri-apps/plugin-store';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import Game from './Game.svelte';
 	const store = new Store('.settings.dat');

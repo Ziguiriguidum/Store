@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Store } from 'tauri-plugin-store-api';
+	import { Store } from '@tauri-apps/plugin-store';
 	import type { SteamGame } from '$lib/types/Steam';
 	import Carousel from 'svelte-carousel';
 	import chevronDown from '$lib/images/chevron-down.svg';

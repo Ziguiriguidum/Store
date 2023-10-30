@@ -43,11 +43,11 @@
 		"@tauri-apps/cli": "^1.5.6",
 		"@tauri-apps/plugin-app": "^2.0.0-alpha.1",
 		"@tauri-apps/plugin-sql": "^2.0.0-alpha.2",
+		"@tauri-apps/plugin-store": "github:tauri-apps/tauri-plugin-store#v2",
 		"@types/feather-icons": "^4.29.1",
 		"feather-icons": "^4.29.0",
 		"svelte-carousel": "^1.0.23",
 		"svelte-fa": "^3.0.3",
-		"tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store",
 		"ya-bbcode": "^3.1.0"
 	}
 }
