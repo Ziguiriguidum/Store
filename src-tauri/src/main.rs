@@ -11,6 +11,7 @@ mod db;
 
 fn setup<'a>(app: &'a mut tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let window = app.get_window("main").unwrap();         
+    //window.set_size(Size::Logical(tauri::LogicalSize { width: 0.0, height: 0.0})).unwrap();
     window.set_size(Size::Logical(tauri::LogicalSize { width: 1280.0, height: 800.0})).unwrap();
     set_shadow(&window, true).unwrap();
     

@@ -30,6 +30,9 @@ log = "0.4.20"
 features = ["sqlite"]
 version = "2.0.0-alpha"
 
+[patch.crates-io]
+tao = { git = "https://github.com/tauri-apps/tao", branch = "v0.16" }
+
 [features]
 default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]

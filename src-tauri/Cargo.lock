@@ -3303,9 +3303,9 @@ dependencies = [
 
 [[package]]
 name = "serde_repr"
-version = "0.1.16"
+version = "0.1.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8725e1dfadb3a50f7e5ce0b1a540466f6ed3fe7a0fca2ac2b8b831d31316bd00"
+checksum = "3081f5ffbb02284dda55132aa26daecedd7372a42417bbbab6f14ab7d6bb9145"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4100,9 +4100,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-plugin-window-state"
-version = "2.0.0-alpha.3"
+version = "2.0.0-alpha.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fab9bbbf0290081429545868b0aecaf727e9c2f6fdeadd5bfdece5f7af9c79d9"
+checksum = "eb977b8d287a3242f14c1901b8b5ca9331abd14ef53a02a82f0dab65c9bda0aa"
 dependencies = [
  "bincode",
  "bitflags 2.4.1",
@@ -5347,3 +5347,8 @@ dependencies = [
  "quote",
  "syn 1.0.109",
 ]
+
+[[patch.unused]]
+name = "tao"
+version = "0.16.5"
+source = "git+https://github.com/tauri-apps/tao?branch=v0.16#8e593ca387ce4dab962f09bf1837bc08116f3fcd"
