@@ -44,9 +44,6 @@
       ],
       "shortDescription": "",
       "targets": "all",
-      "updater": {
-        "active": false
-      },
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
