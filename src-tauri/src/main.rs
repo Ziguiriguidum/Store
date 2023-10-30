@@ -16,14 +16,14 @@ fn setup<'a>(app: &'a mut tauri::App) -> Result<(), Box<dyn std::error::Error>> 
     
     let db = app.state::<Mutex<Database>>();
     
-    // match tokio::runtime::Runtime::new() {
-    //     Ok(runtime) => runtime.block_on(async {
-    //         db.lock().await.resources_dir = app.path().resolve("resources/database.db", tauri::path::BaseDirectory::Resource).expect("Failed to find resources directory");
-    //         db.lock().await.data_dir = app.path().resolve("data", tauri::path::BaseDirectory::AppData).expect("Failed to find data directory");
-    //         db.lock().await.db_setup().await.expect("Failed to setup database");  
-    //     }),
-    //     Err(_) => panic!("error creating runtime"),
-    // };
+    match tokio::runtime::Runtime::new() {
+        Ok(runtime) => runtime.block_on(async {
+            db.lock().await.resources_dir = app.path().resolve("resources/database.db", tauri::path::BaseDirectory::Resource).expect("Failed to find resources directory");
+            db.lock().await.data_dir = app.path().resolve("data", tauri::path::BaseDirectory::AppData).expect("Failed to find data directory");
+            db.lock().await.db_setup().await.expect("Failed to setup database");  
+        }),
+        Err(_) => panic!("error creating runtime"),
+    };
 
 
     Ok(())
