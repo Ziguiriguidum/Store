@@ -7,6 +7,7 @@ use db::Database;
 use tauri::{Manager, Size}; 
 use tokio::sync::Mutex;
 mod db;
+mod api;
 
 fn setup<'a>(app: &'a mut tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let window = app.get_window("main").unwrap();         

@@ -22,10 +22,11 @@ window-vibrancy = "0.3.2"
 tauri-plugin-window-state = "2.0.0-alpha"
 window-shadows = "^0.2.1"
 sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "sqlite"] }
-tokio = { version = "1.20.0", features = ["macros"] }
+tokio = { version = "1.20.0", features = ["full"] }
 tauri-plugin-store = "2.0.0-alpha"
 log = "0.4.20"
 tauri-cli = "2.0.0-alpha.17"
+reqwest = { version = "0.11", features = ["json"] }
 
 [dependencies.tauri-plugin-sql]
 features = ["sqlite"]

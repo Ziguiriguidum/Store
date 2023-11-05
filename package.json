@@ -43,7 +43,7 @@
 		"@tauri-apps/cli": "^2.0.0-alpha.17",
 		"@tauri-apps/plugin-app": "^2.0.0-alpha.1",
 		"@tauri-apps/plugin-dialog": "^2.0.0-alpha.3",
-		"@tauri-apps/plugin-sql": "^2.0.0-alpha.2",
+		"@tauri-apps/plugin-sql": "github:tauri-apps/tauri-plugin-sql#v2",
 		"@tauri-apps/plugin-store": "github:tauri-apps/tauri-plugin-store#v2",
 		"@tauri-apps/plugin-window": "^2.0.0-alpha.1",
 		"@types/feather-icons": "^4.29.1",
