@@ -6,14 +6,11 @@
 use db::Database;
 use tauri::{Manager, Size}; 
 use tokio::sync::Mutex;
-//use window_shadows::set_shadow;
 mod db;
 
 fn setup<'a>(app: &'a mut tauri::App) -> Result<(), Box<dyn std::error::Error>> {
     let window = app.get_window("main").unwrap();         
-    //window.set_size(Size::Logical(tauri::LogicalSize { width: 0.0, height: 0.0})).unwrap();
     window.set_size(Size::Logical(tauri::LogicalSize { width: 1280.0, height: 800.0})).unwrap();
-    //set_shadow(&window, true).unwrap();
     
     let db = app.state::<Mutex<Database>>();
     
@@ -23,9 +20,8 @@ fn setup<'a>(app: &'a mut tauri::App) -> Result<(), Box<dyn std::error::Error>> 
             db.lock().await.data_dir = app.path().resolve("data", tauri::path::BaseDirectory::AppData).expect("Failed to find data directory");
             db.lock().await.db_setup().await.expect("Failed to setup database");  
         }),
-        Err(_) => panic!("error creating runtime"),
+        Err(_) => panic!("error creating resources"),
     };
-
 
     Ok(())
 }
@@ -37,7 +33,7 @@ fn main() {
         .manage(db_mng)
         .plugin(tauri_plugin_store::Builder::default().build())
         .plugin(tauri_plugin_window_state::Builder::default().build())
-        .invoke_handler(tauri::generate_handler![add_app_queue, get_app_queue])
+        .invoke_handler(tauri::generate_handler![add_app_queue])
         .setup(setup)
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
@@ -69,9 +65,4 @@ async fn add_app_queue(_app_handle: tauri::AppHandle, _id: String, _path: String
     
     println!("ping ok");
     Ok("Success".into())
-}
-
-#[tauri::command]
-async fn get_app_queue(_app_handle: tauri::AppHandle) -> Result<String, String> {    
-    Ok("".into())
 }
