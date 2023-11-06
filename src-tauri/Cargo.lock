@@ -183,8 +183,10 @@ dependencies = [
  "tauri",
  "tauri-build",
  "tauri-cli",
+ "tauri-plugin-process",
  "tauri-plugin-sql",
  "tauri-plugin-store",
+ "tauri-plugin-window",
  "tauri-plugin-window-state",
  "tokio",
  "window-shadows",
@@ -6042,6 +6044,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "tauri-plugin-process"
+version = "2.0.0-alpha.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7934439a8f9196ec99c385df4be62eb19ce719fd94aaa4c681551f327c60cc75"
+dependencies = [
+ "tauri",
+]
+
+[[package]]
 name = "tauri-plugin-sql"
 version = "2.0.0-alpha.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6067,6 +6078,17 @@ dependencies = [
  "log",
  "serde",
  "serde_json",
+ "tauri",
+ "thiserror",
+]
+
+[[package]]
+name = "tauri-plugin-window"
+version = "2.0.0-alpha.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "646c4d192ac58631b56059b5a3b26b254b42dcae91a455a818a22687bb841c39"
+dependencies = [
+ "serde",
  "tauri",
  "thiserror",
 ]

@@ -27,6 +27,8 @@ tauri-plugin-store = "2.0.0-alpha"
 log = "0.4.20"
 tauri-cli = "2.0.0-alpha.17"
 reqwest = { version = "0.11", features = ["json"] }
+tauri-plugin-process = { version = "2.0.0-alpha.4" }
+tauri-plugin-window = { version = "2.0.0-alpha.2" }
 
 [dependencies.tauri-plugin-sql]
 features = ["sqlite"]

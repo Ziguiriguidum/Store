@@ -33,6 +33,7 @@ fn main() {
     tauri::Builder::default()
         .manage(db_mng)
         .plugin(tauri_plugin_store::Builder::default().build())
+        .plugin(tauri_plugin_window::init())
         .plugin(tauri_plugin_window_state::Builder::default().build())
         .invoke_handler(tauri::generate_handler![add_app_queue])
         .setup(setup)
@@ -64,6 +65,14 @@ async fn add_app_queue(_app_handle: tauri::AppHandle, _id: String, _path: String
     }
 
     
+    println!("ping ok");
+    Ok("Success".into())
+}
+
+#[tauri::command]
+async fn update_game_list(_app_handle: tauri::AppHandle, db_state: tauri::State<'_, Mutex<Database>>) -> Result<String, String> {
+    api::update_game_list().await;
+  
     println!("ping ok");
     Ok("Success".into())
 }

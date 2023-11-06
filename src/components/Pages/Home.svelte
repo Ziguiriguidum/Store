@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { Store } from '@tauri-apps/plugin-store';
 	import Game from './Game.svelte';
-	const store = new Store('.settings.dat');
+	const store = new Store('.settings.dat');	
 
 	export let props;
 	export let page;
@@ -35,7 +35,9 @@
 		<p
 			class="text-xl text-gray-400 font-light pb-2 mb-2 mt-4 border-b border-white border-opacity-30 mx-16"
 		>
-			Ziguiriguidum Store
+			<button>
+				Ziguiriguidum Store
+			</button>
 		</p>
 		<div class="sm:flex flex-wrap mx-16 pb-8 justify-around">
 			{#each games as game}
